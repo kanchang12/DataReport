@@ -1,11 +1,28 @@
 import pandas as pd
 import openai
-import os
+from google.cloud import secretmanager
 
-# Set your OpenAI API key (assuming the secret name in Koyeb is "OpenAPI_KEY")
-API_KEY = os.environ.get("OpenAPI_KEY1")  # Use the same name as the Koyeb secret
+# Function to retrieve the OpenAI API key from Secret Manager
+def get_api_key():
+  """
+  Retrieves the OpenAI API key from Google Cloud Secret Manager.
+  """
+  project_id = "230931703669"  # Replace only if your project ID is different
+  secret_name = "DataAnalysis"  # Replace only if your secret name is different
 
+  client = secretmanager.SecretManagerServiceClient()
+  name = f"projects/{project_id}/secrets/{secret_name}/versions/latest"
+  try:
+      response = client.access_secret_version(name=name)
+      return response.payload.data.decode("UTF-8")
+  except Exception as e:
+      print(f"Error: Failed to retrieve API key from Secret Manager - {e}")
+      return None  # Handle missing or inaccessible key
+
+# Set OpenAI API key (using the retrieved key)
+API_KEY = get_api_key()
 openai.api_key = API_KEY
+
 
 def read_csv_file(file_path):
   """
