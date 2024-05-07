@@ -3,7 +3,7 @@ import openai
 import os
 
 # Set your OpenAI API key (assuming the secret name in Koyeb is "OpenAPI_KEY")
-API_KEY = os.environ.get("OpenAPI_KEY")  # Use the same name as the Koyeb secret
+API_KEY = os.environ.get("OpenAPI_KEY1")  # Use the same name as the Koyeb secret
 
 openai.api_key = API_KEY
 
