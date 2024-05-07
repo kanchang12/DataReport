@@ -8,9 +8,7 @@ API_KEY = os.environ.get("OpenAPI_KEY")
 openai.api_key = API_KEY
 
 def read_csv_file(file_path):
- """
- Read a CSV file and return a pandas DataFrame.
- """
+
  try:
   df = pd.read_csv(file_path)
   return df
@@ -19,25 +17,19 @@ def read_csv_file(file_path):
   return None
 
 def preprocess_data(df):
- """
- Preprocess the DataFrame (e.g., handle missing values, data cleaning, etc.).
- """
+
  # Example preprocessing steps (replace NaN values with empty string)
  df.fillna('', inplace=True)
  return df
 
 def generate_table_data(df):
- """
- Generate table format data suitable for input to OpenAI Playground.
- """
+
  # Convert DataFrame to list of dictionaries (each row is a dictionary)
  table_data = df.to_dict(orient='records')
  return table_data
 
 def call_openai_playground(prompt_text):
- """
- Call OpenAI Playground API with a prompt text.
- """
+
  try:
   response = openai.Completion.create(
     engine="text-davinci-002",
@@ -50,9 +42,7 @@ def call_openai_playground(prompt_text):
   return None
 
 def main(csv_file_path, prompt_text):
- """
- Main function to process CSV data and interact with OpenAI Playground.
- """
+
  # Read CSV file
  df = read_csv_file(csv_file_path)
  if df is None:
