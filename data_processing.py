@@ -2,7 +2,7 @@ import pandas as pd
 import openai
 
 # Set your OpenAI API key
-API_KEY = "sk-proj-V5535D8MCCsBgG7yiZMOT3BlbkFJ3Q0XM2lYWJCJuMAoiBJW"
+API_KEY = os.getenv("OpenAPI_KEY")
 openai.api_key = API_KEY
 
 def read_csv_file(file_path):
