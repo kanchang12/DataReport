@@ -4,7 +4,8 @@ import os
 
 
 # Set your OpenAI API key
-API_KEY = os.environ.get("OpenAPI_KEY1")
+#API_KEY = os.environ.get("OpenAPI_KEY1")
+API_KEY = os.getenv("OpenAPI_KEY1")
 
 openai.api_key = API_KEY
 
