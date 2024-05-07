@@ -1,5 +1,7 @@
 import pandas as pd
 import openai
+import os
+
 
 # Set your OpenAI API key
 API_KEY = os.getenv("OpenAPI_KEY")
