@@ -4,7 +4,8 @@ import os
 
 
 # Set your OpenAI API key
-API_KEY = os.getenv("OpenAPI_KEY")
+#API_KEY = os.getenv("OpenAPI_KEY")
+API_KEY = "sk-proj-oyINwyjom9MgV9yYbQzLT3BlbkFJf6UDHeWgkb35IXS1Xtvt"
 openai.api_key = API_KEY
 
 def read_csv_file(file_path):
