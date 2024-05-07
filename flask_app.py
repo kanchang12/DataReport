@@ -46,5 +46,8 @@ def process_data():
 
     return render_template('analysis.html', analysis_result=analysis_result)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    # Use Gunicorn as the production WSGI server
+    host = '0.0.0.0'
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host=host, port=port)
