@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="analysisContent">
+        <h1>Analysis Report</h1>
+
+        <!-- Analysis Result Display -->
+        <div id="analysisResult">
+            {% if analysis_result %}
+                <p>{{ analysis_result }}</p>
+            {% else %}
+                <p>No analysis result available.</p>
+            {% endif %}
+        </div>
+
+        <!-- Download Button (Optional) -->
+        <!-- <button id="downloadButton" onclick="downloadReport()">Download Report</button> -->
+    </div>
+
+    <!-- Script for additional functionality (e.g., report download) -->
+    <!-- <script src="report.js"></script> -->
+
+</body>
+</html>

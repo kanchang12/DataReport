@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Processing App</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
     <h1>Data Processing App</h1>
 
     <!-- File Upload Form -->
-    <form id="uploadForm" enctype="multipart/form-data">
+    <form id="uploadForm" enctype="multipart/form-data" action="/process_data" method="post">
         <label for="csvFile">Upload CSV File:</label>
         <input type="file" name="csvFile" id="csvFile" accept=".csv" required><br><br>
 
@@ -20,34 +19,10 @@
         <input type="text" name="userInput" id="userInput" required><br><br>
 
         <!-- Submit Button -->
-        <button type="button" onclick="startProcessing()">Start Processing</button>
+        <button type="submit">Start Processing</button>
     </form>
 
-    <!-- Result Display Area -->
-    <div id="result"></div>
-
-    <!-- JavaScript Section -->
-    <script>
-        function startProcessing() {
-            const form = document.getElementById('uploadForm');
-            const formData = new FormData(form);
-
-            // Display loading message
-            document.getElementById('result').textContent = 'Processing...';
-
-            // Simulate processing (e.g., send data to backend)
-            // Replace this with actual backend API call
-            setTimeout(() => {
-                // Example: Log uploaded file and user input
-                const file = formData.get('csvFile');
-                const userInput = document.getElementById('userInput').value;
-                console.log('Uploaded File:', file);
-                console.log('User Input:', userInput);
-
-                // Display result message (replace with actual response)
-                document.getElementById('result').textContent = 'Processing complete!';
-            }, 2000); // Simulated processing time (2 seconds)
-        }
-    </script>
+    <!-- Script for file upload handling -->
+    <script src="script.js"></script>
 </body>
 </html>
