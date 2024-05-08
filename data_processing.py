@@ -2,6 +2,15 @@ import pandas as pd
 import openai
 import os
 import sys
+
+import logging
+
+# Configure logging
+logging.basicConfig(filename='app.log', level=logging.DEBUG)
+
+# Your existing code with print statements...
+print("This message will be logged to a file")
+
 print("test")
 # Set your OpenAI API key (assuming the secret name in Koyeb is "OpenAPI_KEY")
 API_KEY = os.environ.get("OpenAPI_KEY1")
