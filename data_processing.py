@@ -2,7 +2,7 @@ import pandas as pd
 import openai
 import os
 import sys
-
+from koyeb import secrets
 import logging
 
 # Configure logging
@@ -12,9 +12,11 @@ logging.basicConfig(filename='app.log', level=logging.DEBUG)
 print("This message will be logged to a file")
 
 print("test")
-# Set your OpenAI API key (assuming the secret name in Koyeb is "OpenAPI_KEY")
-API_KEY = os.environ.get("OpenAPI_KEY1")
-print("OpenAPI_KEY1")
+API_KEY = secrets.get("OpenAPI_KEY1")
+
+if API_KEY is None:
+  print("Error: OpenAPI_KEY1 secret is not found.")
+  sys.exit(1)
 
 print(API_KEY)
 
