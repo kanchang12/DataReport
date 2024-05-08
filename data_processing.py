@@ -16,9 +16,6 @@ print("test")
 API_KEY = os.environ.get("OpenAPI_KEY1")
 print("OpenAPI_KEY1")
 
-if API_KEY is None:
-  print("Error: OpenAPI_KEY1 secret is not found.")
-  sys.exit(1)
 
 print(API_KEY)
 
