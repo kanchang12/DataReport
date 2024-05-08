@@ -6,6 +6,10 @@ import sys
 # Set your OpenAI API key (assuming the secret name in Koyeb is "OpenAPI_KEY")
 API_KEY = os.environ.get("OpenAPI_KEY1")
 
+if API_KEY is None:
+    print("Error: OpenAPI_KEY1 environment variable is not set.")
+    sys.exit(1)
+
 openai.api_key = API_KEY
 
 def read_csv_file(file_path):
