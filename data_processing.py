@@ -6,6 +6,8 @@ import sys
 # Set your OpenAI API key (assuming the secret name in Koyeb is "OpenAPI_KEY")
 API_KEY = os.environ.get("OpenAPI_KEY1")
 
+print(API_KEY)
+
 if API_KEY is None:
     print("Error: OpenAPI_KEY1 environment variable is not set.")
     sys.exit(1)
