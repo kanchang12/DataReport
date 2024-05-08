@@ -15,10 +15,6 @@ print("test")
 # Set your OpenAI API key (assuming the secret name in Koyeb is "OpenAPI_KEY")
 API_KEY = os.environ.get("OpenAPI_KEY1")
 print("OpenAPI_KEY1")
-with this
-from koyeb import secrets
-
-API_KEY = secrets.get("OpenAPI_KEY1")
 
 if API_KEY is None:
   print("Error: OpenAPI_KEY1 secret is not found.")
