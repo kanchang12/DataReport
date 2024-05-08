@@ -2,7 +2,6 @@ import pandas as pd
 import openai
 import os
 import sys
-from koyeb import secrets
 import logging
 
 # Configure logging
