@@ -8,16 +8,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    print("page")
     return render_template('index.html')
+project_id = "dataanalysis-422708"
 
+vertexai.init(project=project_id, location="us-central1")
 
 vision_model = GenerativeModel("gemini-ultra-vision")
 vision_chat = vision_model.start_chat()
+print("start")
 #image = Image.load_from_file("image.jpg")
 #print(vision_chat.send_message(["I like this image.", image]))
 print(vision_chat.send_message("What things do I like?."))
 
-from vertexai.generative_models import GenerativeModel
 model = GenerativeModel(
     "gemini-1.0-pro",
     system_instruction=[
