@@ -1,7 +1,6 @@
 import os
 from flask import Flask, request, render_template
-import openai
-import data_processing
+from google.cloud import aiplatform
 
 app = Flask(__name__)
 
