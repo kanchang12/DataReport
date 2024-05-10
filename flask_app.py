@@ -2,6 +2,7 @@ import os
 from flask import Flask, request, render_template
 #from google.cloud import aiplatform
 from vertexai.generative_models import GenerativeModel, Image, Content, Part, Tool, FunctionDeclaration, GenerationConfig
+import vertexai
 
 app = Flask(__name__)
 
