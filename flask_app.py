@@ -6,11 +6,14 @@ import vertexai
 
 app = Flask(__name__)
 
-credentials = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
+
 @app.route('/')
-def index():
-    print("page")
-    return render_template('index.html')
+def hello_world():
+    return 'Hello, World!'
+
+credentials = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
+print(credentials)
+
 project_id = "dataanalysis-422708"
 
 vertexai.init(project=project_id, location="us-central1", credentials=credentials)
