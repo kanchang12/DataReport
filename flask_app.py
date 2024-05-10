@@ -6,14 +6,14 @@ import vertexai
 
 app = Flask(__name__)
 
-
+credentials = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 @app.route('/')
 def index():
     print("page")
     return render_template('index.html')
 project_id = "dataanalysis-422708"
 
-vertexai.init(project=project_id, location="us-central1")
+vertexai.init(project=project_id, location="us-central1", credentials=credentials)
 
 vision_model = GenerativeModel("gemini-ultra-vision")
 vision_chat = vision_model.start_chat()
