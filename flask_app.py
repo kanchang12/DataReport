@@ -10,7 +10,7 @@ def hello_world():
     return 'Hello, World!'
 
 
-genai.configure(api_key=os.environ['API_KEY'])
+genai.configure(api_key=os.getenv('API_KEY'))
 
 model = genai.GenerativeModel('gemini-pro')
 response = model.generate_content('Please summarise this document: ...')
