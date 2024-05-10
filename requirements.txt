@@ -2,3 +2,4 @@ google-cloud-aiplatform
 Flask
 gunicorn
 vertexai
+google.generativeai
