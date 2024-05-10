@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, render_template
-from google.cloud import aiplatform
+#from google.cloud import aiplatform
 
 app = Flask(__name__)
 
