@@ -1,11 +1,2 @@
-pandas>=1.4.0
-numpy>=1.18.5,<1.23.0
-scipy>=1.7.3
-statsmodels>=0.14.2
-seaborn>=0.13.2
-matplotlib>=3.5.1
-Flask>=2.0.3
-openai==0.28
-python-dateutil>=2.8.1
-pytz>=2020.1
-gunicorn
+google-cloud-aiplatform
+Flask
