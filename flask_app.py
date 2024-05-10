@@ -11,7 +11,7 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello, World!'
 
-credentials = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
+credentials = "8bca8389e484c393f4e12dafae49257f0606880b"
 print(credentials)
 
 project_id = "dataanalysis-422708"
