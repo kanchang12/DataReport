@@ -33,7 +33,7 @@ def process_request():
     jupyter_url = 'https://6d4780637308d21c-dot-europe-west2.notebooks.googleusercontent.com/lab/tree/DataNotebook.ipynb'
     exec = execute_notebook(jupyter_url)
     response = requests.post(jupyter_url, json={'user_input': user_input})
-    print('user_input': user_input}
+    print('user_input': user_input)
 
     # Get the result from the Jupyter Notebook
     if response.status_code == 200:
