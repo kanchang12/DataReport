@@ -5,6 +5,10 @@ import requests
 #import vertexai
 #from vertexai.generative_models import GenerativeModel
 
+import subprocess
+
+
+
 app = Flask(__name__)
 
 
@@ -14,6 +18,11 @@ def index():
     print("html")
     return render_template('index.html')
 
+def execute_notebook(notebook_path):
+    # Construct the command to execute the notebook with jupytext
+    command = f"jupytext --execute {notebook_path}"
+
+
 @app.route('/process', methods=['POST'])
 def process_request():
     # Get text input from the form
@@ -22,7 +31,9 @@ def process_request():
 
     # Send the input to the Jupyter Notebook (replace with your notebook URL)
     jupyter_url = 'https://6d4780637308d21c-dot-europe-west2.notebooks.googleusercontent.com/lab/tree/DataNotebook.ipynb'
+    exec = execute_notebook(jupyter_url)
     response = requests.post(jupyter_url, json={'user_input': user_input})
+    print('user_input': user_input}
 
     # Get the result from the Jupyter Notebook
     if response.status_code == 200:
