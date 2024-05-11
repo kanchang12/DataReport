@@ -31,7 +31,7 @@ def process_request():
         result = 'Error communicating with the Jupyter Notebook'
 
     # Render a new page to display the result
-    return render_template('index.html', result=result)
+    return render_template('analysis.html', result=result)
 
 
 
@@ -41,5 +41,5 @@ if __name__ == "__main__":
     # Use Gunicorn as the production WSGI server
     host = '0.0.0.0'
     port = int(os.environ.get('PORT', 5000))
-    app.run(host=host, port=port)
+    app.run(host=host, port=port, debug=True)
 
