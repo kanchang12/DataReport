@@ -1,14 +1,25 @@
 import os
-from flask import Flask, request, render_template
-
+from flask import Flask, render_template, request
+from nbconvert import execute_notebook
 
 app = Flask(__name__)
 
 
+# Route to serve the index.html page
 @app.route('/')
-def hello_world():
-    return 'Hello, World!'
+def index():
+    return render_template('index.html')
 
+# Route to execute the notebook when the button is clicked
+@app.route('/run_notebook', methods=['POST'])
+def run_notebook():
+    # Execute the notebook (add your notebook execution logic here)
+    try:
+        # Example: Execute notebook using nbconvert
+        execute_notebook('path/to/your/notebook.ipynb')
+        return 'Notebook executed successfully', 200
+    except Exception as e:
+        return f'Error executing notebook: {str(e)}', 500
 
 
 
