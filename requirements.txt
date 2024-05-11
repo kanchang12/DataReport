@@ -3,7 +3,7 @@ Flask
 gunicorn
 vertexai
 google.generativeai
-click1
+click==7.1.2
 itsdangerous
 Jinja2
 MarkupSafe
