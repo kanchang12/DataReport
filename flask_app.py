@@ -16,7 +16,7 @@ def run_notebook():
     # Execute the notebook (add your notebook execution logic here)
     try:
         # Example: Execute notebook using nbconvert
-        execute_notebook('path/to/your/notebook.ipynb')
+        execute_notebook('https://6d4780637308d21c-dot-europe-west2.notebooks.googleusercontent.com/lab/tree/DataNotebook.ipynb')
         return 'Notebook executed successfully', 200
     except Exception as e:
         return f'Error executing notebook: {str(e)}', 500
