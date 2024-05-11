@@ -31,7 +31,7 @@ def process_request():
         result = 'Error communicating with the Jupyter Notebook'
 
     # Render a new page to display the result
-    return render_template('analysis.html', result=result)
+    return render_template('index.html', result=result)
 
 
 
