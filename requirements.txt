@@ -3,3 +3,10 @@ Flask
 gunicorn
 vertexai
 google.generativeai
+click1
+itsdangerous
+Jinja2
+MarkupSafe
+nbconvert
+Werkzeug
+
