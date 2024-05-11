@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Processing App</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Flask App with Notebook Execution</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Data Processing App</h1>
+    <h1>Flask App with Notebook Execution</h1>
+    
+    <button id="executeBtn">Execute Notebook</button>
 
-    <!-- File Upload Form -->
-    <form id="uploadForm" enctype="multipart/form-data" action="/process_data" method="post">
-        <label for="csvFile">Upload CSV File:</label>
-        <input type="file" name="csvFile" id="csvFile" accept=".csv" required><br><br>
-
-        <!-- User Input Field -->
-        <label for="userInput">User Input:</label>
-        <input type="text" name="userInput" id="userInput" required><br><br>
-
-        <!-- Submit Button -->
-        <button type="submit">Start Processing</button>
-    </form>
-
-    <!-- Script for file upload handling -->
-    <script src="js/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#executeBtn').click(function() {
+                $.ajax({
+                    type: 'POST',
+                    url: '/run_notebook',
+                    success: function(response) {
+                        alert('Notebook executed successfully!');
+                    },
+                    error: function(error) {
+                        alert('Error executing notebook: ' + error.responseText);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
