@@ -13,17 +13,21 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+# Handle the form submission from index.html
 @app.route('/process', methods=['POST'])
 def process_request():
-    # Get data from frontend
-    data = request.get_json()
+    # Get text input from the form
+    user_input = request.form['user_input']
 
-    # Make a request to the hosted Python script endpoint
-    script_endpoint_url = 'YOUR_HOSTED_PYTHON_SCRIPT_ENDPOINT'
-    response = requests.post(script_endpoint_url, json=data)
+    # Send the input to the Jupyter Notebook (replace with your notebook URL)
+    jupyter_url = 'https://6d4780637308d21c-dot-europe-west2.notebooks.googleusercontent.com/lab/tree/DataNotebook.ipynb'
+    response = requests.post(jupyter_url, json={'user_input': user_input})
 
-    # Return response from the hosted Python script to frontend
-    return jsonify(response.json())
+    # Get the result from the Jupyter Notebook
+    result = response.json().get('result', 'No result')
+
+    # Render a new page to display the result
+    return render_template('result.html', result=result)
 
 
 
