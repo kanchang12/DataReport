@@ -13,23 +13,17 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-# Route to process the input from frontend
 @app.route('/process', methods=['POST'])
-def process_input():
-    # Get input text from the form submitted by frontend
-    input_text = request.form['input_text']
+def process_request():
+    # Get data from frontend
+    data = request.get_json()
 
-    # URL of the Jupyter Notebook backend (Vertex AI endpoint)
-    notebook_url = 'https://6d4780637308d21c-dot-europe-west2.notebooks.googleusercontent.com/lab/tree/DataNotebook.ipynb'
+    # Make a request to the hosted Python script endpoint
+    script_endpoint_url = 'YOUR_HOSTED_PYTHON_SCRIPT_ENDPOINT'
+    response = requests.post(script_endpoint_url, json=data)
 
-    # Send the input text to the Jupyter Notebook backend
-    response = requests.post(notebook_url, json={'input_text': input_text})
-
-    # Retrieve the processed output from the Jupyter Notebook
-    processed_output = response.json().get('processed_output')
-
-    # Return the processed output to the frontend
-    return jsonify({'result': processed_output})
+    # Return response from the hosted Python script to frontend
+    return jsonify(response.json())
 
 
 
