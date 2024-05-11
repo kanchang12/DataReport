@@ -11,12 +11,14 @@ app = Flask(__name__)
 # Route to serve the index.html page
 @app.route('/')
 def index():
+    print("html")
     return render_template('index.html')
 
 @app.route('/process', methods=['POST'])
 def process_request():
     # Get text input from the form
     user_input = request.form['user_input']
+    print(user_input)
 
     # Send the input to the Jupyter Notebook (replace with your notebook URL)
     jupyter_url = 'https://6d4780637308d21c-dot-europe-west2.notebooks.googleusercontent.com/lab/tree/DataNotebook.ipynb'
