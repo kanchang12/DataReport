@@ -1,5 +1,4 @@
 google-cloud-aiplatform
-Flask
 gunicorn
 vertexai
 google.generativeai
@@ -8,5 +7,6 @@ itsdangerous
 Jinja2
 MarkupSafe
 nbconvert
-Werkzeug
+Flask==2.0.2
+Werkzeug==2.0.2
 
