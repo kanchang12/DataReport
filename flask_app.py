@@ -3,7 +3,13 @@ from flask import Flask, request, render_template
 import google.generativeai as genai
 
 app = Flask(__name__)
+app.debug = True
 
+app.logger.setLevel(logging.DEBUG)
+
+# Create a StreamHandler to print log messages to the console
+stream_handler = logging.StreamHandler()
+app.logger.addHandler(stream_handler)
 
 @app.route('/')
 def hello_world():
