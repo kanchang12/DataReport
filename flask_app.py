@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, render_template
-import google.generativeai as genai
+
 
 app = Flask(__name__)
 app.debug = True
@@ -16,12 +16,6 @@ def hello_world():
     return 'Hello, World!'
 
 
-genai.configure(api_key=os.getenv('API_KEY'))
-
-model = genai.GenerativeModel('gemini-pro')
-response = model.generate_content('Please summarise this document: ...')
-
-print(response.text)
 
 
 
