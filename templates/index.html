@@ -2,33 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flask-Jupyter Integration</title>
+    <title>Input Form</title>
 </head>
 <body>
-    <h1>Flask-Jupyter Integration</h1>
-    <form action="/process" method="POST">
-        <label for="input_text">Enter Text:</label>
-        <input type="text" id="input_text" name="input_text">
-        <button type="submit">Process</button>
+    <h1>Input Form</h1>
+    <form action="/process" method="post">
+        <label for="user_input">Enter Text:</label>
+        <input type="text" id="user_input" name="user_input">
+        <button type="submit">Submit</button>
     </form>
-    <div id="result"></div>
-
-    <script>
-        // Optional: Use JavaScript to handle form submission asynchronously
-        const form = document.querySelector('form');
-        const resultDiv = document.getElementById('result');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const response = await fetch('/process', {
-                method: 'POST',
-                body: formData
-            });
-            const data = await response.json();
-            resultDiv.textContent = JSON.stringify(data, null, 2);
-        });
-    </script>
 </body>
 </html>
