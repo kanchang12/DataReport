@@ -33,7 +33,9 @@ def process_request():
     # Render a new page to display the result
     return render_template('analysis.html', result=result)
 
-
+# Example usage
+response = execute_notebook_workflow()
+print(json.dumps(response))  # Output the response as JSON
 
 
 
