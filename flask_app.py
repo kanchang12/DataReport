@@ -1,7 +1,9 @@
 import os
 from flask import Flask, request, jsonify, render_template
-from nbconvert import execute_notebook
+#from nbconvert import execute_notebook
 import requests
+import vertexai
+from vertexai.generative_models import GenerativeModel
 
 app = Flask(__name__)
 
@@ -11,23 +13,23 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-# Route to process form submission from the frontend
+# Route to process the input from frontend
 @app.route('/process', methods=['POST'])
-def process_request():
-    # Get data from the form submitted by the frontend
-    input_text = request.form.get('input_text')
+def process_input():
+    # Get input text from the form submitted by frontend
+    input_text = request.form['input_text']
 
-    # Make a request to the Jupyter Notebook backend
+    # URL of the Jupyter Notebook backend (Vertex AI endpoint)
     notebook_url = 'https://6d4780637308d21c-dot-europe-west2.notebooks.googleusercontent.com/lab/tree/DataNotebook.ipynb'
-    data = {'input_text': input_text}  # Data to send to Jupyter Notebook
-    response = requests.post(notebook_url, json=data)
 
-    # Return response from Jupyter Notebook to frontend
-    if response.status_code == 200:
-        return jsonify(response.json()), 200
-    else:
-        return jsonify({'error': 'Failed to process request'}), 500
+    # Send the input text to the Jupyter Notebook backend
+    response = requests.post(notebook_url, json={'input_text': input_text})
 
+    # Retrieve the processed output from the Jupyter Notebook
+    processed_output = response.json().get('processed_output')
+
+    # Return the processed output to the frontend
+    return jsonify({'result': processed_output})
 
 
 
