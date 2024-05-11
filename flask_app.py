@@ -2,8 +2,8 @@ import os
 from flask import Flask, request, jsonify, render_template
 #from nbconvert import execute_notebook
 import requests
-import vertexai
-from vertexai.generative_models import GenerativeModel
+#import vertexai
+#from vertexai.generative_models import GenerativeModel
 
 app = Flask(__name__)
 
