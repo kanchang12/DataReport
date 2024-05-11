@@ -9,7 +9,7 @@ MarkupSafe==2.0.1
 nbconvert==6.2.0
 Flask==2.0.2
 Werkzeug==2.0.2
-numpy==1.21.0
+pandas
 Pillow==8.3.1
 
 
