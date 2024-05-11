@@ -13,7 +13,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-# Handle the form submission from index.html
 @app.route('/process', methods=['POST'])
 def process_request():
     # Get text input from the form
@@ -24,10 +23,13 @@ def process_request():
     response = requests.post(jupyter_url, json={'user_input': user_input})
 
     # Get the result from the Jupyter Notebook
-    result = response.json().get('result', 'No result')
+    if response.status_code == 200:
+        result = response.json().get('result', 'No result')
+    else:
+        result = 'Error communicating with the Jupyter Notebook'
 
     # Render a new page to display the result
-    return render_template('result.html', result=result)
+    return render_template('index.html', result=result)
 
 
 
